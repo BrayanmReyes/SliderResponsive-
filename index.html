@@ -130,28 +130,28 @@
   			}
 
 		</style>
-
+				<script type="text/javascript">
+					$(function () {
+						var rangePercent = $('[type="range"]').val();
+						$('[type="range"]').on("change input", function () {
+							rangePercent = $('[type="range"]').val();
+							$("h4").html(rangePercent + "<span></span>");
+							$('[type="range"], h4>span').css(
+								"filter",
+								"hue-rotate(-" + rangePercent + "deg)"
+							);
+							//$('h4').css({'transform': 'translateX(calc(-50% - 20px)) scale(' + (1+(rangePercent/100)) + ')', 'left': rangePercent+'%'});
+							$("h4").css({
+								transform: "translateX(-50%) scale(" + (1 + rangePercent / 100) + ")",
+								left: rangePercent + "%"
+							});
+						});
+					});
+		</script>
 	</head>
 
 	<body>
-		<script type="text/javascript">
-			$(function () {
-				var rangePercent = $('[type="range"]').val();
-				$('[type="range"]').on("change input", function () {
-					rangePercent = $('[type="range"]').val();
-					$("h4").html(rangePercent + "<span></span>");
-					$('[type="range"], h4>span').css(
-						"filter",
-						"hue-rotate(-" + rangePercent + "deg)"
-					);
-					$('h4').css({'transform': 'translateX(calc(-50% - 20px)) scale(' + (1+(rangePercent/100)) + ')', 'left': rangePercent+'%'});
-/* 					$("h4").css({
-						transform: "translateX(-50%) scale(" + (1 + rangePercent / 100) + ")",
-						left: rangePercent + "%"
-					}); */
-				});
-			});
-		</script>
+
 		<h1>Porcentaje de oxigenacion</h1>
 		<h3>%</h3>
 		<input type="range" value="0">
